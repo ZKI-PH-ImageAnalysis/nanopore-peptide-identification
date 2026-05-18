@@ -1,0 +1,31 @@
+from snakemake.utils import min_version
+from itertools import product  
+
+min_version("7.12.1")
+
+configfile: "config/config.yml"
+
+
+# Detect runs that have a `pod5` directory
+DATA_DIRS = [
+    os.path.basename(d)
+    for d in glob_wildcards("data/{run_name}/pod5/").run_name
+    if os.path.isdir(f"data/{d}/pod5")
+]
+
+ALL_REFS = list(config["ref_fasta"].keys())
+CLASSIFY_REF = "template_N0_threading"
+ALIGN_RUN_REF_COMBOS = list(product(DATA_DIRS, ALL_REFS))
+CLASSIFY_RUN_REF_COMBOS = [(run_name, CLASSIFY_REF) for run_name in DATA_DIRS]
+
+rule all:
+    input:
+        expand("results/{run_name}/{ref_name}/align-plots/", run_name=[r for r, _ in ALIGN_RUN_REF_COMBOS], ref_name=[f for _, f in ALIGN_RUN_REF_COMBOS]),
+        "results/classification/features_minirocket/",
+        "results/classification/inceptiontime/",
+        "results/classification/features_dtw/",
+        "results/dataset_basecalls_aligned_PLR.tsv",
+
+
+include: "rules/common.smk"
+include: "rules/input.smk"
