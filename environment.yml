@@ -1,0 +1,9 @@
+name: nanopore-peptide-detection
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - snakemake=7.31
+  - mamba=1.5.1
+  - conda=23.7.4
