@@ -1,5 +1,7 @@
 # A framework for peptide identification on nanopore sequencing platforms
 
+[![DOI](https://img.shields.io/badge/DOI-10.64898%2F2026.05.19.726067-blue)](https://doi.org/10.64898/2026.05.19.726067)
+
 Nanopore peptide analysis workflow using Snakemake for preprocessing, signal segmentation, classification, and evaluation.
 
 ![Graphical abstract](GraphicalAbstract.png)
@@ -7,8 +9,7 @@ Nanopore peptide analysis workflow using Snakemake for preprocessing, signal seg
 ---
 
 Pre-print:
-- Beslic D, Kucklick M, Graap E, Renard BY, Fuchs S, Engelmann S, Korber N. A framework for peptide identification on commercial nanopore sequencing platforms. bioRxiv (2026). DOI: XXXX
-
+- Beslic D, Kucklick M, Graap E, Sedaghatjoo S, Renard BY, Fuchs S, Engelmann S, Koerber N. A framework for peptide identification on commercial nanopore sequencing platforms. bioRxiv. 2026. https://doi.org/10.64898/2026.05.19.726067 
 ---
 
 ## Overview
